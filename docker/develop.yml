@@ -1,0 +1,27 @@
+version: '2'
+services:
+  pomelo-db:
+    image: mongo:3.7
+    container_name: pomelo-db
+    restart: always
+    ports:
+      - "10017:27017"
+    volumes:
+      - ./db:/data/db
+    command: mongod
+
+  pomelo-api:
+    build: ./node
+    container_name: pomelo-api
+    ports:
+      - "3002:3002"
+    volumes:
+      - ../../pomelo:/app
+    depends_on:
+      - pomelo-db
+    links:
+      - pomelo-db
+    working_dir: /app
+    environment:
+      NODE_ENV: "testing"
+    command: npm start

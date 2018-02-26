@@ -1,0 +1,300 @@
+{
+	"id": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+	"name": "Test",
+	"description": "",
+	"order": [
+		"0f308829-1dbc-d27b-824a-1def5d928b47"
+	],
+	"folders": [
+		{
+			"name": "Test Error",
+			"description": "",
+			"collectionId": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+			"order": [
+				"ef8be544-6005-1529-e9f8-78a6cc1049a0",
+				"18cfb198-4804-4c18-f8f8-2023af9d3e01",
+				"6d9b5113-42cc-35f6-6ca3-8d32d56ce6fe"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "f5421945-b366-6e59-7eb0-1e37e415f4c0"
+		},
+		{
+			"name": "Test Register",
+			"description": "",
+			"collectionId": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+			"order": [
+				"85627314-9358-5db4-6ddc-dcd69f1da43a",
+				"b5c6dfe7-f2ce-3004-4ddf-cd27b2f1453c",
+				"5de12e40-2a8a-be2b-7c8d-e94f964e6439"
+			],
+			"owner": 0,
+			"folders_order": [],
+			"id": "6c925dbe-a36f-1a35-3b96-6c02eee7c702"
+		}
+	],
+	"folders_order": [
+		"6c925dbe-a36f-1a35-3b96-6c02eee7c702",
+		"f5421945-b366-6e59-7eb0-1e37e415f4c0"
+	],
+	"timestamp": 1519471168679,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "0f308829-1dbc-d27b-824a-1def5d928b47",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:3002/api/check",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [
+				{
+					"key": "username",
+					"value": "calltong",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "iam123456",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1519471389577,
+			"name": "Check",
+			"description": "",
+			"collectionId": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+			"responses": []
+		},
+		{
+			"id": "18cfb198-4804-4c18-f8f8-2023af9d3e01",
+			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Basic Y2FsbHRvbmc6aGVsbG8=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic Y2FsbHRvbmc6aGVsbG8=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:3002/api/v1/oauth/token",
+			"folder": "f5421945-b366-6e59-7eb0-1e37e415f4c0",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "pm.test(\"response is bad request\", function () {\n    pm.response.to.have.status(400);\n});",
+			"currentHelper": "basicAuth",
+			"helperAttributes": {
+				"id": "basic",
+				"username": "calltong",
+				"password": "hello",
+				"saveToRequest": true
+			},
+			"time": 1519615313753,
+			"name": "Login (400) incorrect",
+			"description": "",
+			"collectionId": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "5de12e40-2a8a-be2b-7c8d-e94f964e6439",
+			"headers": "Content-Type: application/json\nAuthorization: Bearer {{token}}\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer {{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:3002/api/v1/user/unregister",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "pm.test(\"response is ok\", function () {\n    pm.response.to.have.status(200);\n});",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1519613774530,
+			"name": "Unregister",
+			"description": "",
+			"collectionId": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+			"responses": [],
+			"rawModeData": "{\n}"
+		},
+		{
+			"id": "6d9b5113-42cc-35f6-6ca3-8d32d56ce6fe",
+			"headers": "Content-Type: application/json\nAuthorization: Bearer 123\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer 123",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:3002/api/v1/user/unregister",
+			"folder": "6c925dbe-a36f-1a35-3b96-6c02eee7c702",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "pm.test(\"response is ok\", function () {\n    pm.response.to.have.status(200);\n});",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1519615311865,
+			"name": "Unregister (500) bad token",
+			"description": "",
+			"collectionId": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+			"responses": [],
+			"rawModeData": "{\n}"
+		},
+		{
+			"id": "85627314-9358-5db4-6ddc-dcd69f1da43a",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:3002/api/v1/oauth/register",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "pm.test(\"response is ok\", function () {\n    pm.response.to.have.status(200);\n});",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1519613751823,
+			"name": "Register",
+			"description": "",
+			"collectionId": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"Uthai R.\",\n\t\"email\": \"calltong@gmail.com\",\n\t\"username\": \"calltong\",\n\t\"password\": \"hello123456789\"\n}"
+		},
+		{
+			"id": "b5c6dfe7-f2ce-3004-4ddf-cd27b2f1453c",
+			"headers": "Content-Type: application/x-www-form-urlencoded\nAuthorization: Basic Y2FsbHRvbmc6aGVsbG8xMjM0NTY3ODk=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic Y2FsbHRvbmc6aGVsbG8xMjM0NTY3ODk=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:3002/api/v1/oauth/token",
+			"folder": "6c925dbe-a36f-1a35-3b96-6c02eee7c702",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "var json = JSON.parse(responseBody);\npostman.setEnvironmentVariable(\"token\", json.access_token);\n\npm.test(\"response is ok\", function () {\n    pm.response.to.have.status(200);\n});\n",
+			"currentHelper": "basicAuth",
+			"helperAttributes": {
+				"id": "basic",
+				"username": "calltong",
+				"password": "hello123456789",
+				"saveToRequest": true
+			},
+			"time": 1519615628808,
+			"name": "Login",
+			"description": "",
+			"collectionId": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "ef8be544-6005-1529-e9f8-78a6cc1049a0",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:3002/api/v1/oauth/token",
+			"folder": "f5421945-b366-6e59-7eb0-1e37e415f4c0",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "pm.test(\"response is bad request\", function () {\n    pm.response.to.have.status(400);\n});",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1519613914463,
+			"name": "Login (400) no auth",
+			"description": "",
+			"collectionId": "c82e6b20-a865-03fc-3442-e95bac09a5a8",
+			"responses": [],
+			"rawModeData": ""
+		}
+	]
+}
